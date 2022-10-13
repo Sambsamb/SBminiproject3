@@ -25,3 +25,26 @@ def close_db(e=None):
 
     if db is not None:
         db.close()
+
+
+# Functions to run SQL commands from 'schema.sql'
+def init_db():
+    db = get_db()  # get_db returns a database connection
+
+    with current_app.open_resource('schema.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+
+
+@click.command('init-db')  # defines a command line command called init-db
+def init_db_command():
+    # Clear the existing data and create new tables.
+    init_db()
+    click.echo('Initialized the database :)')
+
+
+# Register with the Application
+def init_app(app):
+    app.teardown_appcontext(close_db)  # Cleaning up after returning the response
+    app.cli.add_command(init_db_command)  # New command that can be called with the flask command
+
+
