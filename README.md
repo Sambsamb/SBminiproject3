@@ -40,7 +40,7 @@ tests\test_factory.py ..                                                        
 
 =========================================================== 24 passed in 3.25s ============================================================ 
 ```
-To measure the code coverage of your tests, use the coverage command to run pytest instead of running it directly:
+To measure the code coverage of the tests, use the coverage command to run pytest instead of running it directly:
 ```Python
 coverage run -m pytest
 ```
