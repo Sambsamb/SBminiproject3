@@ -35,9 +35,17 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
-    # Import and register the blueprint from the factory
+    # Import and register the auth blueprint from the factory
     from . import auth
     app.register_blueprint(auth.bp)
+
+    # Import and register the blog blueprint from the factory
+    from . import blog
+    app.register_blueprint(blog.bp)
+    # Unlike the auth blueprint, the blog blueprint does not have a url_prefix. So the index view will be at /,
+    # the create view at /create, and so on. The blog is the main feature of Flaskr, so it makes sense that the
+    # blog index will be the main index.
+    app.add_url_rule('/', endpoint='index')
 
     return app
 
