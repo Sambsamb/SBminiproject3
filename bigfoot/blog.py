@@ -2,10 +2,8 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
 from werkzeug.exceptions import abort
-
 from bigfoot.auth import login_required
 from bigfoot.db import get_db
-
 
 # Define the blueprint and register it in the application factory.
 bp = Blueprint('blog', __name__)
