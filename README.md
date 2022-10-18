@@ -21,7 +21,7 @@ To run this app locally use:
 ```Python
 flask --app bigfoot --debug run
 ```
-# Testing
+## Testing
 To run the tests, use the pytest command
 ```Python
 pytest
