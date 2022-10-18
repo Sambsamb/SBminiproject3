@@ -22,3 +22,39 @@ To run this app locally use:
 flask --app bigfoot --debug run
 ```
 # Testing
+To run the tests, use the pytest command
+```Python
+pytest
+```
+You should see output like:
+```Python
+=========================================================== test session starts ===========================================================
+platform win32 -- Python 3.10.6, pytest-7.1.3, pluggy-1.0.0
+rootdir: D:\myFolder\SBminiproject3-BigFoot, configfile: setup.cfg, testpaths: tests
+collected 24 items
+
+tests\test_auth.py ........                                                                                                          [ 33%]
+tests\test_blog.py ............                                                                                                      [ 83%]
+tests\test_db.py ..                                                                                                                  [ 91%]
+tests\test_factory.py ..                                                                                                             [100%]
+
+=========================================================== 24 passed in 3.25s ============================================================ 
+```
+To measure the code coverage of your tests, use the coverage command to run pytest instead of running it directly:
+```Python
+coverage run -m pytest
+```
+You should see output like:
+```Python
+=============================================================================== test session starts ===============================================================================
+platform win32 -- Python 3.10.6, pytest-7.1.3, pluggy-1.0.0
+rootdir: D:\BU\OneDrive - SmartWebApps\Documents\edu\FHSU\2022 Fall\INF 601G - Advanced Python\SBminiproject3-BigFoot, configfile: setup.cfg, testpaths: tests
+collected 24 items
+
+tests\test_auth.py ........                                                                                                                                                  [ 33%]
+tests\test_blog.py ............                                                                                                                                              [ 83%]
+tests\test_db.py ..                                                                                                                                                          [ 91%]
+tests\test_factory.py ..                                                                                                                                                     [100%]
+
+=============================================================================== 24 passed in 3.36s ================================================================================ 
+```
