@@ -50,7 +50,7 @@ def create():
     return render_template('blog/create.html')
 
 
-# The update and delete views
+# Get Post function
 def get_post(id, check_author=True):
     post = get_db().execute(
         'SELECT p.id, title, body, created, author_id, username'
@@ -68,6 +68,7 @@ def get_post(id, check_author=True):
     return post
 
 
+# The update view
 @bp.route('/<int:id>/update', methods=('GET', 'POST'))
 @login_required
 def update(id):
