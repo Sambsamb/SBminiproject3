@@ -1,0 +1,4 @@
+include bigfoot/schema.sql
+graft bigfoot/static
+graft bigfoot/templates
+global-exclude *.pyc
