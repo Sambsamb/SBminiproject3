@@ -3,22 +3,28 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
 <nav>
     <div class="container text-center">
-      <h1>BigFoot sighting encyclopedia</h1>
-        {% if g.user %} <!-- from load_logged_in_user -->
-           <button type="button" class="btn btn-primary" disabled data-bs-toggle="button">{{ g.user['username'] }}</button>
-           <a class="btn btn-warning" href="{{ url_for('auth.logout') }}" role="button">Logout</a>
-        {% else %}
-          <a class="btn btn-info" href="{{ url_for('auth.register') }}" role="button">Register</a>
-          <a class="btn btn-success" href="{{ url_for('auth.login') }}" role="button">Log In</a>
-        {% endif %}
+        <div class="row">
+            <div class="col">
+              <h1>BigFoot sighting encyclopedia</h1>
+                {% if g.user %} <!-- from load_logged_in_user -->
+                   <button type="button" class="btn btn-primary" disabled data-bs-toggle="button">{{ g.user['username'] }}</button>
+                   <a class="btn btn-warning" href="{{ url_for('auth.logout') }}" role="button">Logout</a>
+                {% else %}
+                  <a class="btn btn-info" href="{{ url_for('auth.register') }}" role="button">Register</a>
+                  <a class="btn btn-success" href="{{ url_for('auth.login') }}" role="button">Log In</a>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </nav>
 <section class="content">
-  <header>
-    {% block header %}{% endblock %}
-  </header>
-  {% for message in get_flashed_messages() %}
-    <div class="alert alert-danger" role="alert">{{ message }} </div>
-  {% endfor %}
-  {% block content %}{% endblock %}
+  <div class="container">
+      <header>
+        {% block header %}{% endblock %}
+      </header>
+      {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger" role="alert">{{ message }} </div>
+      {% endfor %}
+      {% block content %}{% endblock %}
+  </div>
 </section>
