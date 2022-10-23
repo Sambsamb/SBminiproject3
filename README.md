@@ -44,5 +44,5 @@ To measure the code coverage of the tests, use the coverage command to run pytes
 ```Python
 coverage run -m pytest
 ```
-You should see similar output
+
 
