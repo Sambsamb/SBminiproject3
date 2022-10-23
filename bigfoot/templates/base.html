@@ -1,17 +1,17 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - BigFoot sighting encyclopedia</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
 <nav>
-  <h1>BigFoot sighting encyclopedia</h1>
-  <ul>
-    {% if g.user %} <!-- from load_logged_in_user -->
-      <li><span>{{ g.user['username'] }}</span>
-      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-    {% else %}
-      <li><a href="{{ url_for('auth.register') }}">Register</a>
-      <li><a href="{{ url_for('auth.login') }}">Log In</a>
-    {% endif %}
-  </ul>
+    <div class="container text-center">
+      <h1>BigFoot sighting encyclopedia</h1>
+        {% if g.user %} <!-- from load_logged_in_user -->
+          <span>{{ g.user['username'] }}</span>
+           <a class="btn btn-primary" href="{{ url_for('auth.logout') }}" role="button">Logout</a>
+        {% else %}
+          <a href="{{ url_for('auth.register') }}">Register</a>
+          <a class="btn btn-primary" href="{{ url_for('auth.login') }}" role="button">Log In</a>
+        {% endif %}
+    </div>
 </nav>
 <section class="content">
   <header>
