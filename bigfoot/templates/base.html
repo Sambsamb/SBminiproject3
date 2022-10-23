@@ -5,11 +5,11 @@
     <div class="container text-center">
       <h1>BigFoot sighting encyclopedia</h1>
         {% if g.user %} <!-- from load_logged_in_user -->
-          <span>{{ g.user['username'] }}</span>
-           <a class="btn btn-primary" href="{{ url_for('auth.logout') }}" role="button">Logout</a>
+           <button type="button" class="btn btn-primary" disabled data-bs-toggle="button">{{ g.user['username'] }}</button>
+           <a class="btn btn-warning" href="{{ url_for('auth.logout') }}" role="button">Logout</a>
         {% else %}
-          <a href="{{ url_for('auth.register') }}">Register</a>
-          <a class="btn btn-primary" href="{{ url_for('auth.login') }}" role="button">Log In</a>
+          <a class="btn btn-info" href="{{ url_for('auth.register') }}" role="button">Register</a>
+          <a class="btn btn-success" href="{{ url_for('auth.login') }}" role="button">Log In</a>
         {% endif %}
     </div>
 </nav>
@@ -18,7 +18,7 @@
     {% block header %}{% endblock %}
   </header>
   {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
+    <div class="alert alert-danger" role="alert">{{ message }} </div>
   {% endfor %}
   {% block content %}{% endblock %}
 </section>
